@@ -1,7 +1,7 @@
 {
     "name": "itsl/blog",
     "description": ":description",
-    "license": "GNU GENERAL PUBLIC LICENSE",
+    "license": "GPL-3.0+",
     "authors": [
         {
             "name": "Neelam Soni",
