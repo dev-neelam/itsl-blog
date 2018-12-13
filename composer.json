@@ -1,15 +1,15 @@
 {
     "name": "itsl/blog",
     "description": ":description",
-    "license": "License",
+    "license": "GNU GENERAL PUBLIC LICENSE",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Neelam Soni",
+            "email": "neelamsoni1992@gmail.com",
+            "homepage": "https://github.com/dev-neelam"
         }
     ],
-    "homepage": "https://github.com/itsl/blog",
+    "homepage": "https://github.com/dev-neelam/itsl-blog",
     "keywords": ["Laravel", "blog"],
     "require": {
         "illuminate/support": "~5"
