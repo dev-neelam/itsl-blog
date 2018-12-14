@@ -14,18 +14,14 @@ class blogServiceProvider extends ServiceProvider
     public function boot()
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'itsl');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'itsl');
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'itsl');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
-
-        $this->publishes([
-            __DIR__.'/path/to/config/blog.php' => config_path('blog.php'),
-        ]);
     }
 
     /**
