@@ -1,12 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: neelam
- * Date: 8/12/18
- * Time: 5:15 PM
- */
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +8,7 @@
     @yield('styles')
 </head>
 <body>
-@include('partials.header')
+@include('vendor.itsl.partials.header')
 @yield('content')
 
 <script type="text/javascript" src="{{ URL::to('js/jquery.min.js') }}"></script>

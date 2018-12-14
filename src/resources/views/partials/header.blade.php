@@ -1,15 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: neelam
- * Date: 13/12/18
- * Time: 5:36 PM
- */
-
-?>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-    <a class="navbar-brand" href="#">Henry-Lab</a>
+    <a class="navbar-brand" href="{{ route('index') }}">Henry-Lab</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

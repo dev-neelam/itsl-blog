@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('vendor.itsl.layouts.master')
 
 @section('content')
     <div class="container-fluid">

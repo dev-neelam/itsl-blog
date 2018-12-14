@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace itsl\blog\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
@@ -28,11 +29,11 @@ class HomeController extends Controller
     public function index()
     {
         $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(10);
-        return view('home', ['posts' => $posts]);
+        return view('vendor.itsl.home', ['posts' => $posts]);
     }
 
     public function getPostForm() {
-        return view('post/post_form');
+        return view('vendor.itsl.post.post_form');
     }
 
     public function createPost(Request $request){
@@ -46,12 +47,12 @@ class HomeController extends Controller
 
     public function getPost($id){
         $post = Post::find($id);
-        return view('post/post_detail', ['post' => $post]);
+        return view('vendor.itsl.post.post_detail', ['post' => $post]);
     }
 
     public function editPost($id) {
         $post = Post::find($id);
-        return view('post/edit_post', ['post' => $post]);
+        return view('vendor.itsl.post.edit_post', ['post' => $post]);
     }
 
     public function updatePost(Request $request, $id) {

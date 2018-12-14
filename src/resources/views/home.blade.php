@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('vendor.itsl.layouts.master')
 
 @section('content')
     <div class="container-fluid">
@@ -49,7 +49,7 @@
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->name }}</td>
                                 <td>
-                                    <a href="">view more</a>
+                                    <a href="{{ route('post.detail', ['id' => $post->id]) }}">view more</a>
                                 </td>
                                 <td>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }}</td>
                             </tr>
