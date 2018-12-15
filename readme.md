@@ -17,21 +17,19 @@ $ composer require itsl/blog:"dev-master"
 
 ## Usage
 
+``` bash
+$ php artisan vendor:publish --provider="itsl\blog\blogServiceProvider"
+$ php artisan make:auth
+$ php artisan migrate
+```
+
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
 
 ## Requirements
 
-This package has been developed on Laravel 5.7 and has yet not been tested with the older versions.
-
-## Installation
-
-``` bash
-$ php artisan vendor:publish --provider="itsl\blog\blogServiceProvider"
-$ php artisan make:auth
-$ php artisan migrate
-```
+This package has been developed on Laravel 5.7 and has yet not been tested with the older versions
 
 ## Contributing
 
@@ -43,7 +41,7 @@ If you discover any security related issues, please email author email instead o
 
 ## Credits
 
-- [author name]Neelam Soni
+- [Neelam Soni](https://github.com/dev-neelam)
 
 ## License
 
