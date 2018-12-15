@@ -18,17 +18,59 @@
 
             <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
                 <h1>Create Post</h1>
-                <div class="col-md-4">
-                    <form method="post" action="{{ route('post.form') }}">
+                <div class="col-md-8">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('post.form') }}">
                         {{ csrf_field() }}
-                        <div class="form-group">
-                            <label for="name">Title</label>
-                            <input type="text" class="form-control" id="id_title" name="title"
-                                   aria-describedby="title" placeholder="Enter title">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" id="id_title" name="title"
+                                           aria-describedby="title" placeholder="Enter title">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <input type="text" class="form-control" id="category" name="category"
+                                           aria-describedby="category" placeholder="Enter Category">
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="author">Author</label>
+                                    <input type="text" class="form-control" id="author" name="author"
+                                           aria-describedby="author" placeholder="{{\Illuminate\Support\Facades\Auth::user()->name}}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="publish_date">Publish Date</label>
+                                    <input type="date" class="form-control" id="publish_date"
+                                           name="publish_date" value="<?php echo date('Y-m-d', time());?>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group required">
+                            <label for="post_cover" class="control-label">Store Logo</label>
+                            {{--show image--}}
+                            <div id="imagePreview"></div>
+                            {{--show privious image--}}
+                            <div id="previousImage">
+                                @if(isset($post_cover))
+                                    <img src="{{'/img/'.$post_cover}}" width="100px" rel="nofollow">
+                                @endif
+                            </div>
+                            <input type="file" name="post_cover" data-id="file">
+                        </div>
+
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="id_description" rows="3" name="description" placeholder="Description"></textarea>
+                            <textarea rows=20 class="form-control" id="summernote" name="description" placeholder="Blog Content"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Create post</button>
                     </form>
@@ -36,4 +78,44 @@
             </main>
         </div>
     </div>
+@endsection
+@section("scripts")
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 400
+            });
+        });
+
+        $(function(){
+            $("input[data-id='file']").change(function () {
+                $(this).parent().find("#previousImage").hide();
+                if (typeof (FileReader) != "undefined") {
+                    var dvPreview = $(this).parent().find("#imagePreview");
+                    dvPreview.html("");
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    $($(this)[0].files).each(function () {
+                        var file = $(this);
+                        if (regex.test(file[0].name.toLowerCase())) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                var img = $("<img />");
+                                img.attr("style", "height:100px;width: 100px");
+                                img.attr("src", e.target.result);
+                                dvPreview.append(img);
+                            }
+                            reader.readAsDataURL(file[0]);
+                        } else {
+                            alert(file[0].name + " is not a valid image file.");
+                            dvPreview.html("");
+                            return false;
+                        }
+                    });
+                } else {
+                    alert("This browser does not support HTML5 FileReader.");
+                }
+            });
+        });
+    </script>
 @endsection

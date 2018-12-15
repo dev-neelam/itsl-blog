@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->integer('author');
+            $table->string('author');
+            $table->string('category');
+            $table->date('publish_date');
+            $table->boolean('published');
             $table->timestamps();
         });
     }

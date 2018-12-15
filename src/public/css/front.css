@@ -1,0 +1,204 @@
+/*GENERAL*/
+
+.bs-padding-5{
+    padding: 5px !important;
+}
+
+.bs-padding-50{
+    padding: 50px !important;
+}
+
+.bs-margin-right-20{
+    margin-right: 20px;
+}
+
+.bs-margin-top-10{
+    margin-top: 10px !important;
+}
+
+.bs-margin-top-20{
+    margin-top: 20px !important;
+}
+
+.bs-margin-top-30{
+    margin-top: 30px !important;
+}
+
+hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 1em 0;
+    padding: 0;
+    width: 100%;
+}
+
+.bs-serif-font{
+    font-family: "Times New Roman", "Courier New", serif;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    word-spacing: 0.2em;
+}
+
+/*GENERAL ENDS*/
+
+/*MENU BAR*/
+
+.bs-menu-bar{
+    background-color: black;
+}
+
+.bs-menu-bar .menu .item{
+    color: white;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+}
+
+.bs-menu-bar .menu .item:hover{
+    color: #dddddd !important;
+}
+
+.bs-menu-bar .ui.secondary.menu .active.item{
+    color: #ffffff;
+}
+
+.bs-menu-bar .bs-social-icons span, .bs-menu-bar .bs-social-icons a{
+    color: white;
+}
+
+/*MENU BAR ENDS*/
+
+
+
+/*LOGO*/
+
+.bs-logo{
+    padding: 100px 0px 60px 0px;
+    font-size: 5em;
+    font-weight: 900;
+    text-align: center;
+}
+
+/*LOGO ENDS*/
+
+
+
+/*BLOG TAGS*/
+
+.bs-blog-tags .ui.text.menu .item{
+    font-size: 0.9em;
+    font-weight: bolder;
+    letter-spacing: 0.07em;
+    padding: 0px 20px;
+    color: #333;
+}
+
+.bs-blog-tags .ui.text.menu{
+    margin: 0.5em -.5em;
+}
+
+/*BLOG TAGS ENDS*/
+
+.bs-blog-title{
+    font-size: 34px;
+    font-family: "Times New Roman", "Courier New", serif;
+    transform: scale(1, 1.2);
+}
+
+.bs-blog-metadata{
+    margin-top: -15px;
+}
+
+.bs-blog-metadata span{
+    font-size: small;
+    margin: 0px 6px;
+    color:#666;
+}
+
+.bs-blog-summary p.wrapper{
+    text-align: left !important;
+    color: #666;
+    line-height: 25px;
+    word-spacing: 0.5em;
+}
+
+.bs-blog-summary{
+    padding: 20px 70px 30px 70px !important;
+    margin-bottom: 50px;
+}
+
+.bs-blog-summary hr{
+    margin-top: 40px;
+}
+
+.bs-blog-summary .column{
+    padding: 0px !important;
+}
+
+.bs-social-sharing{
+    margin-top: -45px !important;
+}
+
+.bs-read-more{
+    margin-top: -35px !important;
+}
+
+.bs-social-sharing li{
+    list-style: none;
+    position: relative;
+    float: left;
+}
+
+.bs-sidebar{
+    padding-left: 50px !important;
+}
+
+.bs-sidebar .segment{
+    padding: 50px;
+}
+
+.bs-sidebar .segment h5{
+    letter-spacing: 0.08em;
+    word-spacing: 0.2em;
+    color: #333333;
+    font-size: small;
+}
+
+.bs-self-intro{
+    color: #aaaaaa;
+    letter-spacing: 0.08em;
+    word-spacing: 0.3em;
+    line-height: 22px;
+    transform: scale(1, 1.1);
+    font-weight: lighter;
+}
+
+.bs-lbl-category{
+    margin: 4px 2px !important;
+    text-transform: uppercase !important;
+    font-size: 10px !important;
+    font-weight: lighter !important;
+}
+
+.bs-recent-posts.row .column{
+    margin: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.bs-recent-posts .bs-blog-title{
+    font-size: 14px;
+}
+
+.bs-blog-archive li{
+    list-style: none;
+    margin: 20px -100px;
+    text-align: left;
+    font-size: 16px;
+    color: #666666;
+}
+
+.bs-blog-archive{
+    padding-left: 0px !important;
+}

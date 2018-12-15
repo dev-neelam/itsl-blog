@@ -47,9 +47,9 @@
                             <tr>
                                 <th>{{ $loop->iteration }}</th>
                                 <td>{{ $post->title }}</td>
-                                <td>{{ $post->name }}</td>
+                                <td>{{ $post->author }}</td>
                                 <td>
-                                    <a href="{{ route('post.detail', ['id' => $post->id]) }}">view more</a>
+                                    <a href="{{ route('post.detail', ['id' => $post->id]) }}">View More</a>
                                 </td>
                                 <td>{{ Carbon\Carbon::parse($post->created_at)->format('d-m-Y')  }}</td>
                             </tr>

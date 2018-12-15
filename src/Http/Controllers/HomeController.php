@@ -28,24 +28,46 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('users')->leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(10);
+        $posts = Post::query()
+            ->orderBy('created_at', 'DESC')
+            ->paginate(10);
+
         return view('vendor.itsl.home', ['posts' => $posts]);
     }
 
-    public function getPostForm() {
+    public function getPostForm() 
+    {
         return view('vendor.itsl.post.post_form');
     }
 
-    public function createPost(Request $request){
+    public function createPost(Request $request)
+    {
         $post = Post::create(array(
-            'title' => Input::get('title'),
-            'description' => Input::get('description'),
-            'author' => Auth::user()->id
+            'title'         => Input::get('title'),
+            'description'   => Input::get('description'),
+            'author'        => Input::get('author'),
+            'category'      => Input::get('category'),
+            'publish_date'  => date('Y-m-d', strtotime(Input::get('publish_date'))),
+            'published'     => true
         ));
+
+        $post_cover         = Input::file('post_cover');
+        $post_cover_name    = $post_cover ? $post_cover->getClientOriginalName() : null;
+
+        // rename poster file
+        if($post_cover_name && $post_cover){
+            $post_covername = $post->id;
+
+            // move file with updated file name
+            $destination_path = public_path();
+            $post_cover->move($destination_path, $post_covername);
+        }
+
         return redirect()->route('home')->with('success', 'Post has been successfully added!');
     }
 
-    public function getPost($id){
+    public function getPost($id)
+    {
         $post = Post::find($id);
         return view('vendor.itsl.post.post_detail', ['post' => $post]);
     }
@@ -56,10 +78,27 @@ class HomeController extends Controller
     }
 
     public function updatePost(Request $request, $id) {
-        $post = Post::find($id);
-        $post->title = $request->title;
-        $post->description = $request->description;
+        $post               = Post::find($id);
+        $post->title        = $request->title;
+        $post->description  = $request->description;
+        $post->category     = $request->category;
+        $post->author       = $request->author;
+        $post->publish_date = date('Y-m-d', strtotime(Input::get('publish_date')));
+        $post->published    = true;
         $post->save();
+
+        $post_cover         = Input::file('post_cover');
+        $post_cover_name    = $post_cover ? $post_cover->getClientOriginalName() : null;
+
+        // rename poster file
+        if($post_cover_name && $post_cover){
+            $post_covername = $post->id;
+
+            // move file with updated file name
+            $destination_path = public_path();
+            $post_cover->move($destination_path, $post_covername);
+        }
+
         return redirect()->route('home')->with('success', 'Post has been updated successfully!');
     }
 
